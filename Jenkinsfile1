@@ -1,13 +1,5 @@
 pipeline
 {
-
-environment{
-    NAME = "piyush"
-}
-tools {
-  maven 'mymaven'
-}
-
 stages{
 
     stage('build')
