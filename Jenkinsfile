@@ -21,11 +21,12 @@ stages{
     stage('build')
     {
         steps {
-            script{
-                file = load "script.groovy"
-                file.hello()
-            }
-            sh 'mvn clean package -DskipTests=true'
+            //script{
+               // file = load "script.groovy"
+                //file.hello()
+            //}
+            //sh 'mvn clean package -DskipTests=true'
+          echo "Hello"
            
         }
 
@@ -38,8 +39,8 @@ stages{
         parallel {
             stage('testA')
             {
-               agent { label 'DevServer' }
-               // steps{
+               //agent { label 'DevServer' }
+                 steps{
                     echo " This is test A"
                     sh "mvn test"
                 }
