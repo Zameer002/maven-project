@@ -1,13 +1,13 @@
 pipeline
 {
 
-//agent {
-  //label 'DevServer'
-//}
+agent {
+  label 'DevServer'
+}
 
-//parameters {
-  //  choice choices: ['dev', 'prod'], name: 'select_environment'
-//}
+parameters {
+    choice choices: ['dev', 'prod'], name: 'select_environment'
+}
 
 environment{
     NAME = "piyush"
@@ -21,11 +21,11 @@ stages{
     stage('build')
     {
         steps {
-            //script{
-               // file = load "script.groovy"
-                //file.hello()
-            //}
-            //sh 'mvn clean package -DskipTests=true'
+            script{
+                file = load "script.groovy"
+                file.hello()
+            }
+            sh 'mvn clean package -DskipTests=true'
           echo "Hello"
            
         }
@@ -39,7 +39,7 @@ stages{
         parallel {
             stage('testA')
             {
-               //agent { label 'DevServer' }
+               agent { label 'DevServer' }
                  steps{
                     echo " This is test A"
                     sh "mvn test"
@@ -48,14 +48,14 @@ stages{
             }
             stage('testB')
             {
-               // agent { label 'DevServer' }
+                agent { label 'DevServer' }
                 steps{
                 echo "this is test B"
                 sh "mvn test"
                 }
             }
         }
-       /* post {
+        post {
         success {
              dir("webapp/target/")
             {
@@ -103,7 +103,7 @@ stages{
             jar -xvf webapp.war
             """
         }  
-    }*/
+    }
 
    
 
