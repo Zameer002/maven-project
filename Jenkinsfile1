@@ -13,22 +13,6 @@ stages{
         }
     }
     
-    stage('build')
-    {
-        steps {
-            
-        echo "Hello"
-           
-        }
-    }
-    stage('build')
-    {
-        steps {
-            
-        echo "Hello"
-           
-        }
-    }
 
     }
 
